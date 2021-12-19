@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def inputForDay(day, year=2021) -> str:
+def input_for_day(day, year=2021) -> str:
     """
     Returns the input for the given day as a string
     """
