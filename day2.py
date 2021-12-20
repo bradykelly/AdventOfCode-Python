@@ -3,22 +3,22 @@ from input_tool import InputTool
 tool = InputTool()
 input = tool.clean_split(tool.input_for_day(2, 2019), ",")
 
-input[1] = "12"
-input[2] = "2"
+def compute(in_strings: list, noun: int, verb: int) -> int:
+    input = [int(x) for x in in_strings]
+    input[1] = noun
+    input[2] = verb
+    for i in range(0, len(input), 4):
+        if input[i] == 99:
+            break
+        elif input[i] == 1:
+            input[input[i+3]] = input[input[i+1]] + input[input[i+2]]
+        elif input[i] == 2:
+            input[input[i+3]] = input[input[i+1]] * input[input[i+2]]
+    return input[0]
 
-op_code_pos = 0
-while op_code_pos < len(input):
-    op_code = int(input[op_code_pos])
-    if op_code == 99:
-        break
-    pos_1 = int(input[op_code_pos + 1])
-    pos_2 = int(input[op_code_pos + 2])
-    pos_3 = int(input[op_code_pos + 3])
-    if op_code == 1:
-        input[pos_3] = str(int(input[pos_1]) + int(input[pos_2]))
-    elif op_code == 2:
-        input[pos_3] = str(int(input[pos_1]) * int(input[pos_2]))
-    op_code_pos += 4
+def Part1():
+    print(compute(input, 12, 2))
+    
+Part1()
 
-print(input[0])
 
