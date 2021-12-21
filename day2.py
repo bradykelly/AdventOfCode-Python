@@ -16,9 +16,17 @@ def compute(in_strings: list, noun: int, verb: int) -> int:
             input[input[i+3]] = input[input[i+1]] * input[input[i+2]]
     return input[0]
 
-def Part1():
+def Part1() -> None:
     print(compute(input, 12, 2))
     
-Part1()
+
+def Part2()-> None:
+    for noun in range(100):
+        for verb in range(100):
+            if compute(input, noun, verb) == 19690720:
+                print(100 * noun + verb)
+                break
+
+Part2()
 
 

@@ -9,7 +9,7 @@ class InputTool:
         load_dotenv()   
 
 
-    def input_for_day(self, day, year=2021) -> str:
+    def input_for_day(self, day: int, year: int=2021) -> str:
         """
         Returns the input for the given day as a string
         """
@@ -28,7 +28,7 @@ class InputTool:
                 return file.read()
  
 
-    def downloadText(self, url) -> str:
+    def downloadText(self, url: str) -> str:
         """
         Downloads the text from the given url and returns it as a string
         """
@@ -36,10 +36,13 @@ class InputTool:
         response = requests.get(url, cookies=cookies_dict)
         return response.text
 
-    def clean_split(self, input, delim):
+    def clean_split(self, input: str, delim: str) -> list[str]:
+        """
+        Splits a string on a given delimiter and returns a list of non-empty strings
+        """        
         return [x for x in input.split(delim) if x]
 
-    def input_lines_for_day(self, day, year=2019) -> list:
+    def input_lines_for_day(self, day: int, year: int=2019) -> list[str]:
         """
         Returns the input for the given day as a list of lines
         """
