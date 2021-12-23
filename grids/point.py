@@ -11,4 +11,4 @@ class Point:
         return hash((self.x, self.y))
 
     def __str__(self) -> str:
-        return "({}, {})".format(self.x, self.y)
+        return f"({self.y}, {self.x})"
